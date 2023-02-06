@@ -28,7 +28,7 @@ const TaskBox = ({ task, setToDoList, toDoList }) => {
       <div>{task.title}</div>
       <div>{task.desc}</div>
       <button onClick={deleteTask}>삭제하기</button>
-      <button onClick={doneTask}>완료</button>
+      <button onClick={doneTask}>{task.isDone ? "취소" : "완료"}</button>
     </div>
   );
 };

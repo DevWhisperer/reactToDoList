@@ -14,6 +14,8 @@ function App() {
     newList.push({ id, title, desc, isDone: false });
     setToDoList(newList);
     setId(id + 1);
+    setTitle("");
+    setDesc("");
   };
   return (
     <div id="page">
