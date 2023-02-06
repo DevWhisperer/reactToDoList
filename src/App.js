@@ -38,11 +38,29 @@ function App() {
         />
         <input type="submit" value="추가하기" />
       </form>
-      {toDoList.map((item) => {
-        return <TaskBox item={item}></TaskBox>;
+      {toDoList.map((task) => {
+        if (task.isDone === false) {
+          return (
+            <TaskBox
+              key={task.id}
+              task={task}
+              toDoList={toDoList}
+              setToDoList={setToDoList}
+            ></TaskBox>
+          );
+        } else if (task.isDone === true) {
+          return (
+            <div className="task-done">
+              <TaskBox
+                key={task.id}
+                task={task}
+                toDoList={toDoList}
+                setToDoList={setToDoList}
+              ></TaskBox>
+            </div>
+          );
+        }
       })}
-      <TaskBox></TaskBox>
-      <TaskBox></TaskBox>
     </div>
   );
 }
