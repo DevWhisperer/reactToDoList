@@ -15,7 +15,6 @@ function App() {
     setToDoList(newList);
     setId(id + 1);
   };
-
   return (
     <div id="page">
       <Navbar></Navbar>
@@ -40,14 +39,7 @@ function App() {
       </form>
       {toDoList.map((item) => {
         return item.isDone ? (
-          <div className="task-done">
-            <TaskBox
-              key={item.id}
-              task={item}
-              setToDoList={setToDoList}
-              toDoList={toDoList}
-            ></TaskBox>
-          </div>
+          ""
         ) : (
           <TaskBox
             key={item.id}
@@ -55,6 +47,19 @@ function App() {
             setToDoList={setToDoList}
             toDoList={toDoList}
           ></TaskBox>
+        );
+      })}
+      {toDoList.map((item) => {
+        return item.isDone ? (
+          <div className="task-done">
+            <TaskBox
+              task={item}
+              setToDoList={setToDoList}
+              toDoList={toDoList}
+            ></TaskBox>
+          </div>
+        ) : (
+          ""
         );
       })}
     </div>
