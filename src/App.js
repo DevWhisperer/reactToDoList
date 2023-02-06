@@ -11,11 +11,11 @@ function App() {
   const onSubmitHandler = (event) => {
     event.preventDefault();
     let newList = toDoList.concat();
-    newList.push({ id: id, title, desc, isDone: false });
+    newList.push({ id, title, desc, isDone: false });
     setToDoList(newList);
     setId(id + 1);
-    console.log(toDoList);
   };
+
   return (
     <div id="page">
       <Navbar></Navbar>
@@ -38,28 +38,24 @@ function App() {
         />
         <input type="submit" value="추가하기" />
       </form>
-      {toDoList.map((task) => {
-        if (task.isDone === false) {
-          return (
+      {toDoList.map((item) => {
+        return item.isDone ? (
+          <div className="task-done">
             <TaskBox
-              key={task.id}
-              task={task}
-              toDoList={toDoList}
+              key={item.id}
+              task={item}
               setToDoList={setToDoList}
+              toDoList={toDoList}
             ></TaskBox>
-          );
-        } else if (task.isDone === true) {
-          return (
-            <div className="task-done">
-              <TaskBox
-                key={task.id}
-                task={task}
-                toDoList={toDoList}
-                setToDoList={setToDoList}
-              ></TaskBox>
-            </div>
-          );
-        }
+          </div>
+        ) : (
+          <TaskBox
+            key={item.id}
+            task={item}
+            setToDoList={setToDoList}
+            toDoList={toDoList}
+          ></TaskBox>
+        );
       })}
     </div>
   );
