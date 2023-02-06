@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Babylonica";
+  src: url("./static/fonts/Babylonica/Babylonica-Regular.ttf");
+}
+
+* {
+  font-size: 30px;
+  font-family: "Babylonica";
+  padding: 10px 30px 10px 30px;
+}
+
+#page {
+  max-width: 1200px;
+  min-width: 800px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
