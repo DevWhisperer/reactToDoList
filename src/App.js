@@ -51,6 +51,7 @@ function App() {
           ></TaskBox>
         );
       })}
+      <div>---------------------</div>
       {toDoList.map((item) => {
         return item.isDone ? (
           <div className="task-done">
